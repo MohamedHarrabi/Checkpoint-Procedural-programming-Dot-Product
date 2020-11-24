@@ -1,0 +1,118 @@
+/// 1 )
+// Remplir les deux tableaux
+PROCEDURE remplir_vec(VAR vec1,vec2 : ARRAY_OF INTEGER)
+
+Write ("donnée le taille de tableau TAB1:");
+     Read(n);
+
+Write ("donnée le taille de tableau TAB2:");
+     Read(m);
+
+FOR i FROM 0 TO n DO
+ 
+ read(vec1[i]);
+
+END_FOR
+
+FOR j FROM 0 TO m DO
+ 
+ read(vec2[j]);
+
+END_FOR
+END
+
+PROCEDURE dot_product(vec1,vec2 : ARRAY_OF INTEGER, VAR dot : INTEGER)
+VAR
+    i,n,m : INTEGER;
+BEGIN
+    dot :=0;
+    i:=0;
+    IF (vec1.length <> vec2.length) THEN
+        Write("vectors with different sizes we cannot calculat dot product");
+        
+    END_IF
+    WHILE (i <vec1.length ) DO
+        dot := dot + vec1[i]*vec2[i];
+    END_WHILE
+END
+
+// 2) 
+ALGORITHM orth_vectors
+VAR
+    vec1,vec2 : ARRAY_OF INTEGER [50];
+    dot : INTEGER;
+BEGIN
+    
+    n := read_size();
+    
+    read_array(n,vec1);
+    
+    m:= read_size();
+    
+    read_array(m,vec2);
+    dot_product(vec1,vec2,dot);
+    IF (dot = 0) THEN
+        Write("Vec1 and Vec2 are orthogonal");
+    ELSE
+        Write("Vec1 and Vec2 are not orthogonal");
+    END_IF
+END
+
+//V2
+// Remplir les deux tableaux
+PROCEDURE remplir_vec(VAR vec1,vec2 : ARRAY_OF INTEGER)
+
+Write ("donnée le taille de tableau TAB1:");
+     Read(n);
+
+Write ("donnée le taille de tableau TAB2:");
+     Read(m);
+
+FOR i FROM 0 TO n DO
+ 
+ read(vec1[i]);
+
+END_FOR
+
+FOR j FROM 0 TO m DO
+ 
+ read(vec2[j]);
+
+END_FOR
+END
+FUNCTION dot_product(vec1,vec2 : ARRAY_OF INTEGER) : INTEGER
+VAR
+    i, dot : INTEGER;
+BEGIN
+    dot :=0;
+    i:=0;
+    IF (n<> m) THEN
+        Write("vectors with different sizes we cannot calculat dot product");
+        RETURN NaN; // NaN : not definte number
+    END_IF
+    WHILE (i <v1.length ) DO
+        dot := dot + vec1[i]*vec2[i];
+    END_WHILE
+    RETURN dot ;
+END
+
+ALGORITHM orth_vectors
+VAR
+    vec1,vec2 : ARRAY_OF INTEGER [50];
+    dot : INTEGER;
+BEGIN
+    
+    n := read_size();
+  
+    read_array(n,vec1);
+  
+    m := read_size();
+    
+    read_array(m,vec2);
+    dot := dot_product(vec1,vec2);
+    IF (dot = 0) THEN
+        Write("Vec1 and Vec2 are orthogonal");
+    ELSE
+        Write("Vec1 and Vec2 are not orthogonal");
+    END_IF
+END
